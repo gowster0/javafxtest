@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="javafxtest.jnlp">
+  <information>
+    <title>javafxtest</title>
+    <vendor>lzy</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="javafxtest.jar" size="112098" download="eager" />
+    <jar href="lib\fastjson-1.2.47.jar" size="546572" download="eager" />
+    <jar href="lib\okhttp-3.10.0.jar" size="412117" download="eager" />
+    <jar href="lib\okio-1.14.1.jar" size="85773" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="javafxtest" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="application.Main"  name="javafxtest" />
+  <update check="always"/>
+</jnlp>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<VBox xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Demo">
+   <children>
+      <MenuBar fx:id="menubar">
+         <menus>
+            <Menu mnemonicParsing="false" text="菜单1">
+              <items>
+                <MenuItem mnemonicParsing="false" text="一级子菜单1" />
+                  <MenuItem mnemonicParsing="false" text="一级子菜单2" />
+                  <Menu mnemonicParsing="false" text="一级子菜单3">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="二级子菜单" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="菜单2">
+              <items>
+                <MenuItem mnemonicParsing="false" text="分组1菜单" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="分组2菜单" />
+                  <RadioMenuItem mnemonicParsing="false" text="勾选菜单" />
+              </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <TabPane>
+         <tabs>
+            <Tab closable="false" text="主页">
+               <content>
+                  <VBox>
+                     <children>
+                        <ScrollPane prefHeight="946.0" prefWidth="855.0">
+                           <content>
+                              <VBox minHeight="400.0" minWidth="600.0">
+                                 <children>
+                                    <HBox prefHeight="0.0" prefWidth="600.0">
+                                       <children>
+                                          <Label text="标签1" textFill="#ff00009e">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                          <Label text="标签2">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="这是文本标签">
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="8.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="36.0" prefWidth="600.0">
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                       <children>
+                                          <TextField text="这是文本框">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <TextField disable="true" text="禁用文本框">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </TextField>
+                                          <PasswordField text="99999">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </PasswordField>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextArea fx:id="textarea" onKeyPressed="#getTextArea" prefHeight="60.0" prefWidth="508.0" promptText="这是提示文本" wrapText="true">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextArea>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="42.0" prefWidth="540.0">
+                                       <children>
+                                          <RadioButton fx:id="radio1" mnemonicParsing="false" onAction="#getRadio" text="单选1">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </RadioButton>
+                                          <RadioButton fx:id="radio2" mnemonicParsing="false" onAction="#getRadio" text="单选2">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </RadioButton>
+                                          <RadioButton fx:id="radio3" mnemonicParsing="false" onAction="#getRadio" text="单选3">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </RadioButton>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="49.0" prefWidth="540.0">
+                                       <children>
+                                          <CheckBox fx:id="check1" mnemonicParsing="false" onAction="#getChecked" text="CheckBox">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </CheckBox>
+                                          <CheckBox fx:id="check2" mnemonicParsing="false" onAction="#getChecked" selected="true" text="CheckBox">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </CheckBox>
+                                          <CheckBox fx:id="check3" allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" onAction="#getChecked" text="CheckBox">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </CheckBox>
+                                          <CheckBox fx:id="check4" allowIndeterminate="true" mnemonicParsing="false" onAction="#getChecked" text="CheckBox">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </CheckBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="56.0" prefWidth="540.0">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <children>
+                                          <ChoiceBox fx:id="choicebox" prefWidth="100.0">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </ChoiceBox>
+                                          <ChoiceBox disable="true" prefWidth="100.0">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets left="40.0" />
+                                             </padding>
+                                          </ChoiceBox>
+                                          <ComboBox fx:id="combo1" editable="true" prefWidth="100.0">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                          <ComboBox fx:id="combo2" prefWidth="100.0" visibleRowCount="3">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </ComboBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="74.0" prefWidth="600.0">
+                                       <children>
+                                          <DatePicker fx:id="datepicker" editable="false" onAction="#getDate" showWeekNumbers="true">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </DatePicker>
+                                          <ColorPicker fx:id="colorpicker" onAction="#getColor">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </ColorPicker>
+                                          <ProgressBar fx:id="progressbar" progress="0.0">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                          </ProgressBar>
+                                          <ProgressIndicator fx:id="progressindicator" progress="0.0">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin></ProgressIndicator>
+                                          <Button fx:id="button" mnemonicParsing="false" onAction="#progressbar" prefHeight="23.0" prefWidth="59.0" text="RUN">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="button1" mnemonicParsing="false" text="事件添加测试" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox minHeight="300.0">
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                       <children>
+                                          <TabPane>
+                                             <tabs>
+                                                <Tab closable="false" text="表格示例">
+                                                   <content>
+                                                      <VBox>
+                                                         <children>
+                                                            <TableView fx:id="tableview" editable="true"  prefHeight="242.0" prefWidth="502.0">
+                                                              <columns>
+                                                                <TableColumn fx:id="no" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="行号" />
+                                                                <TableColumn fx:id="account" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="账号" />
+                                                                  <TableColumn fx:id="name" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="姓名" />
+                                                                  <TableColumn fx:id="partment" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="部门" />
+                                                                  <TableColumn fx:id="job" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortable="false" text="职务" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                </Tab>
+                                             </tabs>
+                                          </TabPane>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="600.0">
+                                       <children>
+                                          <WebView fx:id="webview" minHeight="600.0" minWidth="600.0" prefHeight="57.0" prefWidth="536.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="fxml嵌套测试">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <children>
+                    <fx:include source="Javafxtest.fxml" />
+                   </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</VBox>
