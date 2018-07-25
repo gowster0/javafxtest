@@ -380,7 +380,7 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                   <children>
-                    <fx:include source="Javafxtest.fxml" />
+                    <fx:include source="Navigation.fxml" />
                    </children>
                   </AnchorPane>
                </content>
