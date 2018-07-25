@@ -30,6 +30,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.RadioButton;
@@ -40,8 +41,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -104,22 +109,28 @@ public class Demo implements Initializable{
 	@FXML
 	private TableColumn<TableEntity, String> job;
 	@FXML
+	private Pagination fenye;
+	@FXML
 	private TextField foo, bar, result;
 	@FXML
 	private Button add, subtract, multiply;
+	@FXML
+	private TreeView<String> tree;
 	
 	ObservableList<TableEntity> data;
+	ArrayList<TableEntity> datas;
 	// 初始化界面,fxml加载后自动调用
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		// 绑定单选组
+		// 绑定单选组 ----------------------------------------------------------------------------------------
 		radio1.setToggleGroup(tg);
 		radio1.setUserData("radio1");
 		radio2.setToggleGroup(tg);
 		radio2.setUserData("radio2");
 		radio3.setToggleGroup(tg);
 		radio3.setUserData("radio3");
+		// 下拉框控件 ----------------------------------------------------------------------------------------
 		choicebox.setItems(FXCollections.observableArrayList("aaa", "bbb", "ccc"));
 		combo1.setItems(FXCollections.observableArrayList("ddd", "eee", "fff"));
 		// ccb2第一种赋值方式（效果：覆盖）
@@ -133,25 +144,31 @@ public class Demo implements Initializable{
 		combo2.getItems().addAll(al);
 		
 		combo1.setValue("admin");
+		
+		// 浏览器控件 ----------------------------------------------------------------------------------------
         webview.getEngine().load("http:\\www.baidu.com");
         
+        // 日期选择控件 ----------------------------------------------------------------------------------------
         datepicker.setValue(LocalDate.now());
-        // 使用lambda表达式向控件添加事件 ()->{}
+        
+        // 使用lambda表达式向控件添加事件 ()->{} ----------------------------------------------------------------------------------------
         button1.setOnAction( (e) ->{
         	Alert all = new Alert(AlertType.CONFIRMATION);
         	all.setContentText("pressed");
         	all.setTitle("pressed");
         	all.show();
         });
-        // 基础方式添加事件
+        // 基础方式添加事件 ----------------------------------------------------------------------------------------
 //        button1.setOnAction(new EventHandler<ActionEvent>() {
 //            @Override public void handle(ActionEvent e) {
 //            	System.out.println(1);
 //            }
 //        });
-        // 动态构造菜单
+        
+        // 动态构造菜单 ----------------------------------------------------------------------------------------
         CreateMenuBar();
-        // post后台交互
+        
+        // post后台交互 ----------------------------------------------------------------------------------------
         add.setOnAction(e->{
         	this.post("add");
         });
@@ -162,7 +179,7 @@ public class Demo implements Initializable{
         	this.post("multiply");
         });
         
-        // 表格处理
+        // 表格处理 ----------------------------------------------------------------------------------------
 //        no.setCellValueFactory(new PropertyValueFactory<>("no"));
         Callback<TableColumn<TableEntity, String>, TableCell<TableEntity, String>> cellFactory = (
                 TableColumn<TableEntity, String> p) -> new EditingCell();
@@ -194,31 +211,102 @@ public class Demo implements Initializable{
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         partment.setCellValueFactory(new PropertyValueFactory<>("partment"));
         job.setCellValueFactory(new PropertyValueFactory<>("job"));
-        String tablejson = "["  + JSON.toJSON(new TableEntity("admin", "admin", "master", "admin")).toString() 
-        						+ JSON.toJSON(new TableEntity("root", "root", "master", "admin")).toString()
-        						+ JSON.toJSON(new TableEntity("test", "test", "master", "test")).toString() 
-        						+ JSON.toJSON(new TableEntity("lzy", "lzy", "master", "admin")).toString() 
-        						+ JSON.toJSON(new TableEntity("admin", "admin", "master", "admin")).toString() 
-        						+ JSON.toJSON(new TableEntity("root", "root", "master", "admin")).toString()
-        						+ JSON.toJSON(new TableEntity("test", "test", "master", "test")).toString() 
-        						+ JSON.toJSON(new TableEntity("lzy", "lzy", "master", "admin")).toString()
-        						+ JSON.toJSON(new TableEntity("admin", "admin", "master", "admin")).toString() 
-        						+ JSON.toJSON(new TableEntity("root", "root", "master", "admin")).toString()
-        						+ JSON.toJSON(new TableEntity("test", "test", "master", "test")).toString() 
-        						+ JSON.toJSON(new TableEntity("lzy", "lzy", "master", "admin")).toString()
-        						+ JSON.toJSON(new TableEntity("admin", "admin", "master", "admin")).toString() 
-        						+ JSON.toJSON(new TableEntity("root", "root", "master", "admin")).toString()
-        						+ JSON.toJSON(new TableEntity("test", "test", "master", "test")).toString() 
-        						+ JSON.toJSON(new TableEntity("lzy", "lzy", "master", "admin")).toString()
-        						+ "]";
-        ArrayList<TableEntity> datas = JSON.parseObject(tablejson, new TypeReference<ArrayList<TableEntity>>(){});
-        data = FXCollections.observableArrayList(datas);
-        tableview.setItems(data);
+        
+        String tablejson = "["  + JSON.toJSON(new TableEntity("admin1", "admin", "master", "admin")).toString() 
+				+ JSON.toJSON(new TableEntity("root2", "root", "master", "admin")).toString()
+				+ JSON.toJSON(new TableEntity("test3", "test", "master", "test")).toString() 
+				+ JSON.toJSON(new TableEntity("lzy4", "lzy", "master", "admin")).toString() 
+				+ JSON.toJSON(new TableEntity("admin5", "admin", "master", "admin")).toString() 
+				+ JSON.toJSON(new TableEntity("root6", "root", "master", "admin")).toString()
+				+ JSON.toJSON(new TableEntity("test7", "test", "master", "test")).toString() 
+				+ JSON.toJSON(new TableEntity("lzy8", "lzy", "master", "admin")).toString()
+				+ JSON.toJSON(new TableEntity("admin9", "admin", "master", "admin")).toString() 
+				+ JSON.toJSON(new TableEntity("root10", "root", "master", "admin")).toString()
+				+ JSON.toJSON(new TableEntity("test11", "test", "master", "test")).toString() 
+				+ JSON.toJSON(new TableEntity("lzy12", "lzy", "master", "admin")).toString()
+				+ JSON.toJSON(new TableEntity("admin13", "admin", "master", "admin")).toString() 
+				+ JSON.toJSON(new TableEntity("root14", "root", "master", "admin")).toString()
+				+ JSON.toJSON(new TableEntity("test15", "test", "master", "test")).toString() 
+				+ JSON.toJSON(new TableEntity("lzy16", "lzy", "master", "admin")).toString()
+				+ "]";
+		datas = JSON.parseObject(tablejson, new TypeReference<ArrayList<TableEntity>>(){});
+		// 设置一次显示的页数
+		fenye.setMaxPageIndicatorCount(5);
+		// 设置总页数
+		fenye.setPageCount(datas.size()/5+1);
+        fenye.setPageFactory(e->{
+        	this.showtable(e);
+        	return tableview;
+        });
+//        String tablejson = "["  + JSON.toJSON(new TableEntity("admin", "admin", "master", "admin")).toString() 
+//        						+ JSON.toJSON(new TableEntity("root", "root", "master", "admin")).toString()
+//        						+ JSON.toJSON(new TableEntity("test", "test", "master", "test")).toString() 
+//        						+ JSON.toJSON(new TableEntity("lzy", "lzy", "master", "admin")).toString() 
+//        						+ JSON.toJSON(new TableEntity("admin", "admin", "master", "admin")).toString() 
+//        						+ JSON.toJSON(new TableEntity("root", "root", "master", "admin")).toString()
+//        						+ JSON.toJSON(new TableEntity("test", "test", "master", "test")).toString() 
+//        						+ JSON.toJSON(new TableEntity("lzy", "lzy", "master", "admin")).toString()
+//        						+ JSON.toJSON(new TableEntity("admin", "admin", "master", "admin")).toString() 
+//        						+ JSON.toJSON(new TableEntity("root", "root", "master", "admin")).toString()
+//        						+ JSON.toJSON(new TableEntity("test", "test", "master", "test")).toString() 
+//        						+ JSON.toJSON(new TableEntity("lzy", "lzy", "master", "admin")).toString()
+//        						+ JSON.toJSON(new TableEntity("admin", "admin", "master", "admin")).toString() 
+//        						+ JSON.toJSON(new TableEntity("root", "root", "master", "admin")).toString()
+//        						+ JSON.toJSON(new TableEntity("test", "test", "master", "test")).toString() 
+//        						+ JSON.toJSON(new TableEntity("lzy", "lzy", "master", "admin")).toString()
+//        						+ "]";
+//        ArrayList<TableEntity> datas = JSON.parseObject(tablejson, new TypeReference<ArrayList<TableEntity>>(){});
+//        data = FXCollections.observableArrayList(datas);
+//        tableview.setItems(data);
+        
+        // tree控件 ------------------------------------------------------------------------------------
+        
+//        ImageView folderIcon = new ImageView();
+//        Image folderImage = new Image(getClass().getResourceAsStream("folder.png"));
+//        folderIcon.setImage(folderImage);
+//        folderIcon.setFitWidth(16);
+//        folderIcon.setFitHeight(16);
+        TreeItem<String> treeItem = new TreeItem<>("根目录");
+        // 设置图标
+//        treeItem.setGraphic(folderIcon);
+        // 设置该树默认打开
+        treeItem.setExpanded(true);
+
+        for(int i = 0;i < 5;i++){
+            TreeItem<String> item = new TreeItem<>("节点:" + i);
+            treeItem.getChildren().add(item);
+            if(i%2 == 0){
+            	TreeItem<String> itemchild = new TreeItem<>("节点:" + i + "的子节点");
+            	item.getChildren().add(itemchild);
+            }
+        }
+        tree.setRoot(treeItem);
+        
+        
+
+	}
+	// 表格分页展示
+	private void showtable(Integer e) {
+		// TODO Auto-generated method stub
+		ArrayList<TableEntity> datasemp = new ArrayList<>();
+		for(int i = 0 ; i < 5 ; i++){
+			if(datas.size() <= e*5+i){
+				break;
+			}
+			datasemp.add(datas.get(e*5+i));
+		}
+		data = FXCollections.observableArrayList(datasemp);
+		tableview.setItems(data);
 	}
 	
+	// 添加行
 	public void addTable(){
+		fenye.setCurrentPageIndex(fenye.getMaxPageIndicatorCount());
         data.add(new TableEntity("", "", "", ""));
+        datas.add(new TableEntity("", "", "", ""));
 	}
+	
+	// 删除行
 	public void deleteTable(){
 		// 判断是否有选中的行
 		if(!tableview.getSelectionModel().isEmpty()){
@@ -226,10 +314,10 @@ public class Demo implements Initializable{
 			System.out.println("当前删除的行是：" + ((TableEntity)tableview.getSelectionModel().getSelectedItem()).getAccount());
 			// 删除选中行
 			data.remove((TableEntity)tableview.getSelectionModel().getSelectedItem());
+			datas.remove((TableEntity)tableview.getSelectionModel().getSelectedItem());
 		}else{
 			// 提示用户未选择
 		}
-		
 	}
 	
 	
@@ -351,6 +439,7 @@ public class Demo implements Initializable{
 		
 	}
 	
+	// 后台交互
 	public void post(String mode){
 		HashMap<String, String> map = new HashMap<>();
 		map.put("foo", foo.getText());

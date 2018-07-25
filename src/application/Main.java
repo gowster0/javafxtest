@@ -24,7 +24,7 @@ public class Main extends Application {
 //			primaryStage.setTitle("hello word");
 //			primaryStage.show();
 			
-			Parent root = FXMLLoader.load(getClass().getResource("Demo.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Navigation.fxml"));
 			Scene scene = new Scene(root, 550, 350);
 			scene.setFill(Color.TRANSPARENT);
 			primaryStage.setScene(scene);

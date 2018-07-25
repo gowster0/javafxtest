@@ -11,6 +11,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Pagination?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ProgressIndicator?>
@@ -25,8 +26,10 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -316,19 +319,24 @@
                                                    <tabs>
                                                       <Tab closable="false" text="表格示例">
                                                          <content>
-                                                            <VBox>
+                                                            <Pane>
                                                                <children>
-                                                                  <TableView fx:id="tableview" editable="true" prefHeight="242.0" prefWidth="502.0">
-                                                                    <columns>
-                                                                      <TableColumn fx:id="no" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="行号" />
-                                                                      <TableColumn fx:id="account" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="账号" />
-                                                                        <TableColumn fx:id="name" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="姓名" />
-                                                                        <TableColumn fx:id="partment" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="部门" />
-                                                                        <TableColumn fx:id="job" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortable="false" text="职务" />
-                                                                    </columns>
-                                                                  </TableView>
+                                                                  <Pagination fx:id="fenye" prefHeight="292.0" prefWidth="502.0" />
+                                                                  <VBox>
+                                                                     <children>
+                                                                        <TableView fx:id="tableview" editable="true" prefHeight="242.0" prefWidth="502.0">
+                                                                          <columns>
+                                                                            <TableColumn fx:id="no" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="行号" />
+                                                                            <TableColumn fx:id="account" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="账号" />
+                                                                              <TableColumn fx:id="name" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="姓名" />
+                                                                              <TableColumn fx:id="partment" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortType="DESCENDING" sortable="false" text="部门" />
+                                                                              <TableColumn fx:id="job" maxWidth="200.0" minWidth="60.0" prefWidth="100.0" sortable="false" text="职务" />
+                                                                          </columns>
+                                                                        </TableView>
+                                                                     </children>
+                                                                  </VBox>
                                                                </children>
-                                                            </VBox>
+                                                            </Pane>
                                                          </content>
                                                       </Tab>
                                                    </tabs>
@@ -350,6 +358,15 @@
                                        <padding>
                                           <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
                                        </padding>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TreeView fx:id="tree" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="240.0">
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </TreeView>
+                                       </children>
                                     </HBox>
                                  </children>
                               </VBox>

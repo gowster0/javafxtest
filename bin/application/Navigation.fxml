@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+    <TitledPane animated="false" text="系统管理">
+         <content>
+            <FlowPane prefHeight="126.0" prefWidth="798.0">
+               <children>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="icon.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="设置" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="icon.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="安全设置" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="icon.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="更新系统" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="icon.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="系统字典" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="icon.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="系统备份" />
+                     </children>
+                  </Pane>
+               </children>
+            </FlowPane>
+         </content>
+      </TitledPane>
+    <TitledPane animated="false" text="会员管理">
+         <content>
+            <FlowPane prefHeight="119.0" prefWidth="798.0">
+               <children>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="会员名单" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="会员等级" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="一卡通" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="扫码" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="移动登陆" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="系统设置" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="分销系统" />
+                     </children>
+                  </Pane>
+               </children>
+            </FlowPane>
+         </content>
+      </TitledPane>
+      <TitledPane animated="false" text="其他管理">
+         <content>
+            <FlowPane prefHeight="105.0" prefWidth="798.0">
+               <children>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="云盘" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="钉钉" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="合同管理" />
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="130.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label alignment="CENTER" layoutY="100.0" prefHeight="30.0" prefWidth="100.0" text="消息提示" />
+                     </children>
+                  </Pane>
+               </children>
+            </FlowPane>
+         </content>
+      </TitledPane>
+   </children>
+</VBox>
